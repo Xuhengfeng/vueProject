@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, width=device-width, height=device-height, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="x5-orientation" content="portrait">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="full-screen" content="yes">
+    <meta name="x5-cache" content="disable">
+    <script src="./res/rem.js"></script>
+    <title>铁路轮渡</title>
+    <style>
+      * {
+        margin :0; padding: 0; outline: 0; border: 0; 
+      }
+      html {
+        font-family: PingFangSC-Regular,Helvetica,Arial,'Lucida Grande',sans-serif;;
+      }
+      body { padding: 0.3rem }
+      h3{  margin: .1rem 0 .25rem;}
+      .main-text {
+        margin: .3rem 0;
+        /*margin-top: 0;*/
+      }
+      .head {
+        font-weight: bold;
+        margin: .4rem 0 .1rem;
+      }
+      p {
+        text-indent: 2em;
+        font-size: 0.24rem;
+        line-height: 2;
+      }
+      h4 {
+        font-size: .26rem;
+        font-weight: bold;
+        text-indent: 0;
+        margin: .4rem 0 .18rem 0;
+      }
+      table {
+        width: 100%;
+        border: 1px solid #E1E1E1;
+        border-right: 0;
+      }
+      table td{
+        width: 19%;
+      }
+      table td.col2 {
+        width: 24%;
+      }
+
+      table * {
+        text-align: center;
+        font-size: .20rem;
+        text-indent: 0;
+      }
+
+      table td {
+        border-top: 1px solid #E1E1E1;
+        border-right:  1px solid #E1E1E1;
+        color: #333333;
+      }
+
+      .table-th {
+        background: #4A98FF;
+      }
+      .table-th td {
+        color: #fff;
+      }
+      table.jjzlb {
+        font-size: .2rem;
+      }
+      table.jjzlb td {
+        padding-top: .14rem;
+        padding-bottom: .14rem;
+      }
+      table.jjzlb td:nth-child(1) {
+        width: 11%;
+      }
+      table.jjzlb td:nth-child(2) {
+        width: 25%;
+      }
+      table.jjzlb td:nth-child(3) {
+        width: 24%;
+      }
+      table.jjzlb td:nth-child(4) {
+        width: 9%;
+      }
+      table.jjzlb td:nth-child(5) {
+        width: 20%;
+      }
+      table.jjzlb td:nth-child(6) {
+        width: 11%;
+      }
+
+      /*空车（含装载少量货物）货车过海最低限价表 */
+
+      table.zdxjb td:nth-child(1) {
+        width: 10%;
+      }
+      table.zdxjb td:nth-child(2) {
+        width: 25%;
+      }
+      table.zdxjb td:nth-child(3) {
+        width: 16%;
+      }
+      table.zdxjb td:nth-child(4) {
+        width: 15%;
+      }
+      table.zdxjb td:nth-child(5) {
+        width: 17%;
+      }
+      table.zdxjb td:nth-child(6) {
+        width: 17%;
+      }
+      
+      table.jjzlb td > div {
+        padding: .16rem 0;
+        border-bottom:   1px solid #E1E1E1;
+      }
+      table.jjzlb tr.table-th td{
+        color: #fff;
+      }
+      table.jjzlb tr.table-th p {
+        line-height: 1.7;
+      }
+      /*table.jjzlb td:nth-child(n > 2) > div {
+        display: table-cell;
+        vertical-align: middle;
+      }*/
+      table.jjzlb td > div:last-child {
+        border-bottom: 0;
+      }
+
+      table.zdxjb tr td {
+        padding: .2rem 0;
+      }
+      .p-sub {
+        color: #4A98FF;
+        font-size: .24rem;
+        text-indent: 0;
+        padding-top: .3rem;
+        /*padding-left: .06rem;*/
+      }
+        
+      table.zusf td:nth-child(1) {
+        width: 4%;
+      }
+      table.zusf td:nth-child(2) {
+        width: 15%;
+      }
+      table.zusf td:nth-child(3) {
+        width: 20%;
+      }
+      table.zusf td:nth-child(4) {
+        width: 15%;
+      }
+      table.zusf td:nth-child(5) {
+        width: 15%;
+      }
+      table.zusf td:nth-child(6) {
+        width: 15%;
+      }
+      table.zusf td {
+        padding: .3rem .1rem;
+        word-break: break-all;
+      }
+      
+    </style>
+  </head>
+  <body style="padding-bottom: 0.2rem; font-size: 14px;">
+    <div class="body-wrap">
+      <section class="header">
+        <h3 class="t" style="font-size: 0.44rem;">铁路轮渡票价公布</h3>
+        <div style="">
+          <span style="color: #204980; font-size: 0.3rem;">铁路轮渡</span>
+          <span style="color: #B4B4B4; font-size: 0.3rem;">2018-12-13</span>
+        </div>
+      </section>
+      <section class="main-text">
+        <h4 class="h-1" style="margin-top: 0">一、客运票价表</h4>
+        <p>
+          <table border="0" cellspacing="0" cellpadding="0">
+            <tr class="table-th" style="color: #FFFFFF">
+              <td>航线</td>
+              <td>船舶</td>
+              <td>等级标准</td>
+              <td class="col2">
+                <section>
+                  <div style="padding: .06rem 0; border-bottom: 1px solid #E1E1E1;">票价</div>
+                  <div style="display: flex;">
+                    <p style="width: 50%">全票</p>
+                    <p style="width: 50%; border-left: 1px solid #E1E1E1;">半票</p>
+                  </div>
+                </section>
+              </td>
+              <td>航运时间</td>
+            </tr>
+            <tr>
+              <td>
+                <section>
+                  <div>南港(海口）</div>
+                  <div>⇋</div>
+                  <div>南港(徐闻）</div>
+                </section>
+              </td>
+              <td>粤海铁1、2、3、4号</td>
+              <td>一等</td>
+              <td class="col2">
+                <section style="display: flex; height: 0.96; line-height: .98rem">
+                  <div style="width: 50%">41.50</div>
+                  <div style="width: 50%; border-left: 1px solid #E1E1E1;">22.50</div>
+                </section>
+              </td>
+              <td>一小时</td>
+            </tr>
+          </table>
+        </p>
+
+        <h4 class="h-1">二、汽车票价表</h4>
+        <p>1、小型轿车416.5元（含一名司机票41.5元）；</p>
+        <p>2、客车（25座以上）604.5元/车（含一名司机票41.5元）；</p>
+        <p>3、货车按照车型、货类、吨位计费</p>
+        <p class="p-sub" style="text-indent: 2.5em; padding-top: 0">3.0、超限车计费</p>
+        <p>（1）长度（含货物长度）超过25米的超长车辆按正常车型计费标准的2倍收费；</p>
+        <p>（2）宽度（含货物宽度）超过3米的超宽车辆按正常车型计费标准的1.5倍收费；</p>
+        <p>（3）上述既超长又超宽的车辆按正常车型计费标准的2.5倍收费。</p>
+        <p class="p-sub">3.1、滚装船舶车载货物运输计价重量表</p>
+        <div>
+          <table class="jjzlb" border="0" cellspacing="0" cellpadding="0">
+            <tr class="table-th" style="color: #FFFFFF">
+              <td>序号</td>
+              <td>车型</td>
+              <td>换算条件</td>
+              <td>单位</td>
+              <td>
+                <p>单元总重量</p>
+                <p>或自重、毛重</p>
+              </td>
+              <td>
+                <p>计价重量</p>
+                <p>(千克)</p>
+              </td>
+            </tr>
+
+            <tr class="1 style="color: #FFFFFF">
+              <td>1</td>
+              <td>两轮摩托车</td>
+              <td class class="dw"="coooo"></td>
+              <td>辆</td class="dyzzl">
+              <td></td>
+              <td class="jjdw">
+                <div class="jjdw-div">600</div>
+              </td>
+            </tr>
+
+            <tr class="2 style="color: #FFFFFF">
+              <td>2</td>
+              <td>三轮摩托车</td>
+              <td class="hstj"></td>
+              <td class="dw">辆</td>
+              <td class="dyzzl"></td>
+              <td class="jjdw">
+                <div class="jjdw-div">1000</div>
+              </td>
+            </tr>
+
+            <tr class="3 style="color: #FFFFFF">
+              <td>3</td>
+              <td>手扶拖拉机头</td>
+              <td class="hstj"></td>
+              <td class="dw">辆</td>
+              <td class="dyzzl"></td>
+              <td class="jjdw">
+                <div class="jjdw-div">2000</div>
+              </td>
+            </tr>
+
+            <tr class="4 style="color: #FFFFFF">
+              <td>4</td>
+              <td>组合手扶拖拉机</td>
+              <td class="hstj">指：带拖卡</td>
+              <td class="dw">辆</td>
+              <td class="dyzzl">W</td>
+              <td class="jjdw">
+                <div class="jjdw-div">W+3000</div>
+              </td>
+            </tr>
+
+            <tr class="5 style="color: #FFFFFF">
+              <td>5</td>
+              <td>拖拉机头</td>
+              <td class="hstj"></td>
+              <td class="dw">辆</td>
+              <td class="dyzzl">W</td>
+              <td class="jjdw">
+                <div class="jjdw-div">W+3000</div>
+              </td>
+            </tr>
+
+            <tr class="6 style="color: #FFFFFF">
+              <td>6</td>
+              <td>组合拖拉机</td>
+              <td class="hstj">指：带拖卡</td>
+              <td class="dw">辆</td>
+              <td class="dyzzl">W</td>
+              <td class="jjdw">
+                <div class="jjdw-div">W+4000</div>
+              </td>
+            </tr>
+
+            <tr class="7 style="color: #FFFFFF">
+              <td>7</td>
+              <td>三轮汽车、微型货车</td>
+              <td class="hstj">
+                <div>载重500千克以下排气量1.0升以下</div>
+              </td>
+              <td class="dw">辆</td>
+              <td class="dyzzl">W</td>
+              <td class="jjdw">
+                <div class="jjdw-div">W+4000</div>
+              </td>
+            </tr>
+
+            <tr class="8 style="color: #FFFFFF">
+              <td>8</td>
+              <td>汽车拖头</td>
+              <td class="hstj"></td>
+              <td class="dw">辆</td>
+              <td class="dyzzl">W</td>
+              <td class="jjdw">
+                <div class="jjdw-div">W+6000</div>
+              </td>
+            </tr>
+
+            <tr class="9" style="color: #FFFFFF">
+              <td>9</td>
+              <td>各类通用载货汽车及与拖挂车组成的运输单元：各类车辆如：厢式车、自卸车、液罐车、冷藏车、保温车、拯救车、消防车、邮政车、运钞车、救护车、洒水车、环境保护车、牲畜车、沥青洒布车、混凝土搅拌车、囚车、电动汽车等其它专用车辆。</td>
+              <td class="hstj">
+                <div class="1">运输单元长度：12米及以下</div>
+                <div class="2">12.1米至13米</div>
+                <div class="3">13.1米至14米</div>
+                <div class="4">14.1米至15米</div>
+                <div class="5">15.1米至16米</div>
+                <div class="6">16.1米至17米</div>
+                <div class="7">17.1米至18米</div>
+              </td>
+              <td>辆</td>
+              <td>
+                <div class="1">W</div>
+                <div class="2">W</div>
+                <div class="3">W</div>
+                <div class="4">W</div>
+                <div class="5">W</div>
+                <div class="6">W</div>
+                <div class="dw" class="7">W</div>
+              </td class="dyzzl">
+              <td class="jjdw">
+                <div class="jjdw-div 1">W+4000</div>
+                <div class="jjdw-div 2">W+5000</div>
+                <div class="jjdw-div 3">W+6000</div>
+                <div class="jjdw-div 4">W+7000</div>
+                <div class="jjdw-div 5">W+8000</div>
+                <div class="jjdw-div 6">W+9000</div>
+                <div class="jjdw-div 7">W+10000</div>
+              </td>
+            </tr>
+
+            <tr class="10" style="color: #FFFFFF">
+              <td>10</td>
+              <td>平板车、半挂车（含拖头）</td>
+              <td class="hstj">
+                <div>13.1米至19米（半挂）</div>
+                <div>19.1米至25米（在上项基础上每加1米加1吨）</div>
+              </td>
+              <td>辆</td>
+              <td>
+                <div>20英尺</div>
+                <div class="dw">40英尺、45英尺</div>
+              </td class="dyzzl">
+              <td class="jjdw">
+                <div class="jjdw-div">W+18000</div>
+                <div class="jjdw-div">W+（19000～25000）</div>
+              </td>
+            </tr>
+
+            <tr class="11" style="color: #FFFFFF">
+              <td>11</td>
+              <td>集装厢</td>
+              <td class="hstj">
+                <div>20英尺</div>
+                <div>40英尺、45英尺</div>
+              </td>
+              <td>辆</td>
+              <td>
+                <div>W</div>
+                <div class="dw">W</div>
+              </td class="dyzzl">
+              <td class="jjdw">
+                <div class="jjdw-div">W+15000</div>
+                <div class="jjdw-div">W+18000</div>
+              </td>
+            </tr>
+
+            <tr class="12" style="color: #FFFFFF">
+              <td>12</td>
+              <td>起重吊车</td>
+              <td class="hstj">
+                <div>负荷5吨及以下</div>
+                <div>负荷5吨以上至10吨及以下</div>
+                <div>负荷10吨以上</div>
+              </td>
+              <td>辆</td>
+              <td>
+                <div>W</div>
+                <div>W</div>
+                <div class="dw">W</div>
+              </td class="dyzzl">
+              <td class="jjdw">
+                <div class="jjdw-div">W+6000</div>
+                <div class="jjdw-div">W+8000</div>
+                <div class="jjdw-div">W+10000</div>
+              </td>
+            </tr>
+
+            <tr class="13" style="color: #FFFFFF">
+              <td>13</td>
+              <td>工程机械如铲车、叉车、挖掘机、推土机、装载机、压路机、搅拌机等</td>
+              <td class="hstj">
+                <div>自重3吨及以下</div>
+                <div>自重3.1吨及以上</div>
+              </td>
+              <td class="dw">辆</td>
+              <td class="dyzzl"></td>
+              <td class="jjdw">
+                <div class="jjdw-div">4000</div>
+                <div class="jjdw-div">自重加60%</div>
+              </td>
+
+            </tr>
+
+            <tr class="14" style="color: #FFFFFF">
+              <td>14</td>
+              <td>各类轿车、吉普车、越野车、客货两用车、12座以下面包车、旅行车</td>
+              <td class="hstj">
+                <div>12座及以下</div>
+              </td>
+              <td class="dw">辆</td>
+              <td class="dyzzl"></td>
+              <td class="jjdw">
+                <div class="jjdw-div">10000</div>
+              </td>
+            </tr>
+
+            <tr class="15" style="color: #FFFFFF">
+              <td>15</td>
+              <td>客车</td>
+              <td class="hstj">
+                <div>13座--24座</div>
+                <div>25座及以上客车</div>
+                <div>25座以上卧铺车</div>
+                <div>三门式公共汽车</div>
+              </td>
+              <td class="dw">辆</td>
+              <td class="dyzzl"></td>
+              <td class="jjdw">
+                <div class="jjdw-div 1">13000</div>
+                <div class="jjdw-div 2">15000</div>
+                <div class="jjdw-div 3">15000</div>
+                <div class="jjdw-div 4">30000</div>
+              </td>
+            </tr>
+          </table>
+        </div>
+
+        <p class="p-sub">3.2、空车（含装载少量货物）货车过海最低限价表 </p>
+        <div>
+          <table class="zdxjb" border="0" cellspacing="0" cellpadding="0">
+            <tr class="table-th">
+              <td class="1">序号</td>
+              <td class="2">车型</td>
+              <td class="3">换算系数</td>
+              <td class="4">平均自重(吨)</td>
+              <td class="5">
+                <div>上浮20%后</div>
+                <div>计费吨</div>
+              </td>
+              <td class="6">
+                <div>上浮24%后</div>
+                <div>计费吨</div>
+              </td>
+            </tr>
+
+            <tr class="1">
+              <td class="1">1</td>
+              <td class="2 cx">组合手扶拖拉机</td>
+              <td class="3 hsxs">3</td>
+              <td class="4 pjzz">1</td>
+              <td class="5 sf20">4.8</td>
+              <td class="6 sf24">5.8</td>
+            </tr>
+
+            <tr class="2">
+              <td class="1">2</td>
+              <td class="2 cx">组合拖拉机</td>
+              <td class="3 hsxs">4</td>
+              <td class="4 pjzz">1</td>
+              <td class="5 sf20">6.0</td>
+              <td class="6 sf24">7.2</td>
+            </tr>
+
+            <tr class="3">
+              <td class="1">3</td>
+              <td class="2 cx">三轮汽车、微型货车</td>
+              <td class="3 hsxs">3</td>
+              <td class="4 pjzz">1</td>
+              <td class="5 sf20">4.8</td>
+              <td class="6 sf24">5.8</td>
+            </tr>
+
+            <tr class="4">
+              <td class="1">4</td>
+              <td class="2 cx">5米以下</td>
+              <td class="3 hsxs">4</td>
+              <td class="4 pjzz">2</td>
+              <td class="5 sf20">7.2</td>
+              <td class="6 sf24">8.6</td>
+            </tr>
+
+            <tr class="5">
+              <td class="1">5</td>
+              <td class="2 cx">5-6米</td>
+              <td class="3 hsxs">4</td>
+              <td class="4 pjzz">2.5</td>
+              <td class="5 sf20">7.8</td>
+              <td class="6 sf24">9.4</td>
+            </tr>
+
+            <tr class="6">
+              <td class="1">6</td>
+              <td class="2 cx">6.1-7米</td>
+              <td class="3 hsxs">4</td>
+              <td class="4 pjzz">4.5</td>
+              <td class="5 sf20">10.2</td>
+              <td class="6 sf24">12.2</td>
+            </tr>
+
+            <tr class="7">
+              <td class="1">7</td>
+              <td class="2 cx">7.1-8米</td>
+              <td class="3 hsxs">4</td>
+              <td class="4 pjzz">6</td>
+              <td class="5 sf20">12.0</td>
+              <td class="6 sf24">14.4</td>
+            </tr>
+
+            <tr class="8">
+              <td class="1">8</td>
+              <td class="2 cx">8.1-9米</td>
+              <td class="3 hsxs">4</td>
+              <td class="4 pjzz">8</td>
+              <td class="5 sf20">14.4</td>
+              <td class="6 sf24">17.3</td>
+            </tr>
+
+            <tr class="9">
+              <td class="1">9</td>
+              <td class="2 cx">9.1-10米</td>
+              <td class="3 hsxs">4</td>
+              <td class="4 pjzz">9</td>
+              <td class="5 sf20">15.6</td>
+              <td class="6 sf24">18.7</td>
+            </tr>
+
+            <tr class="10">
+              <td class="1">10</td>
+              <td class="2 cx">10.1-11米(六轮)</td>
+              <td class="3 hsxs">4</td>
+              <td class="4 pjzz">9</td>
+              <td class="5 sf20">15.6</td>
+              <td class="6 sf24">18.7</td>
+            </tr>
+
+            <tr class="11">
+              <td class="1">11</td>
+              <td class="2 cx">11.1-12米(六轮)</td>
+              <td class="3 hsxs">4</td>
+              <td class="4 pjzz">11</td>
+              <td class="5 sf20">18.0</td>
+              <td class="6 sf24">21.6</td>
+            </tr>
+
+            <tr class="12">
+              <td class="1">12</td>
+              <td class="2 cx">10.1-11米(十轮)</td>
+              <td class="3 hsxs">4</td>
+              <td class="4 pjzz">12</td>
+              <td class="5 sf20">19.2</td>
+              <td class="6 sf24">23.0</td>
+            </tr>
+
+            <tr class="13">
+              <td class="1">13</td>
+              <td class="2 cx">11.1-12米(十轮)</td>
+              <td class="3 hsxs">4</td>
+              <td class="4 pjzz">12</td>
+              <td class="5 sf20">19.2</td>
+              <td class="6 sf24">23.0</td>
+            </tr>
+
+            <tr class="14">
+              <td class="1">14</td>
+              <td class="2 cx">12.1-13米(十轮)</td>
+              <td class="3 hsxs">5</td>
+              <td class="4 pjzz">13</td>
+              <td class="5 sf20">21.6</td>
+              <td class="6 sf24">25.9</td>
+            </tr>
+
+            <tr class="15">
+              <td class="1">15</td>
+              <td class="2 cx">13.1-14米(十二轮)</td>
+              <td class="3 hsxs">6</td>
+              <td class="4 pjzz">15</td>
+              <td class="5 sf20">25.2</td>
+              <td class="6 sf24">30.2</td>
+            </tr>
+
+            <tr class="16">
+              <td class="1">16</td>
+              <td class="2 cx">14.1-15米(十六轮)</td>
+              <td class="3 hsxs">7</td>
+              <td class="4 pjzz">16</td>
+              <td class="5 sf20">27.6</td>
+              <td class="6 sf24">33.1</td>
+            </tr>
+
+            <tr class="17">
+              <td class="1">17</td>
+              <td class="2 cx">15.1-16米(十六轮)</td>
+              <td class="3 hsxs">8</td>
+              <td class="4 pjzz">16</td>
+              <td class="5 sf20">30.0</td>
+              <td class="6 sf24">34.6</td>
+            </tr>
+
+            <tr class="18">
+              <td class="1">18</td>
+              <td class="2 cx">16.1-17米(十六轮)</td>
+              <td class="3 hsxs">9</td>
+              <td class="4 pjzz">17</td>
+              <td class="5 sf20">32.4</td>
+              <td class="6 sf24">35.6</td>
+            </tr>
+
+            <tr class="19">
+              <td class="1">19</td>
+              <td class="2 cx">17.1-18米(十六轮)</td>
+              <td class="3 hsxs">10</td>
+              <td class="4 pjzz">18</td>
+              <td class="5 sf20">34.8</td>
+              <td class="6 sf24">36.6</td>
+            </tr>
+
+            <tr class="20">
+              <td class="1">20</td>
+              <td class="2 cx">平板车、半挂车</td>
+              <td class="3 hsxs">18</td>
+              <td class="4 pjzz">18</td>
+              <td class="5 sf20">43.2</td>
+              <td class="6 sf24">51.8</td>
+            </tr>
+
+            <tr class="21">
+              <td class="1">21</td>
+              <td class="2 cx">平板、半挂车（19.1米以上并在25米以内，每长1米加1吨）</td>
+              <td class="3 hsxs">19-25</td>
+              <td class="4 pjzz">18</td>
+              <td class="5 sf20">43.2</td>
+              <td class="6 sf24">52.8-58.8</td>
+            </tr>
+
+            <tr class="22">
+              <td class="1">22</td>
+              <td class="2 cx">集装箱(20英尺)</td>
+              <td class="3 hsxs">15</td>
+              <td class="4 pjzz">15</td>
+              <td class="5 sf20">36.0</td>
+              <td class="6 sf24">43.2</td>
+            </tr>
+
+            <tr class="23">
+              <td class="1">23</td>
+              <td class="2 cx">集装箱(40英尺)</td>
+              <td class="3 hsxs">18</td>
+              <td class="4 pjzz">18</td>
+              <td class="5 sf20">43.2</td>
+              <td class="6 sf24">51.8</td>
+            </tr>
+
+            <tr class="24">
+              <td class="1">24</td>
+              <td class="2 cx">集装箱(45英尺)</td>
+              <td class="3 hsxs">18</td>
+              <td class="4 pjzz">18</td>
+              <td class="5 sf20">43.2</td>
+              <td class="6 sf24">51.8</td>
+            </tr>
+
+          </table>
+        </div>
+        <p class="p-sub">注</p>
+        <div>
+           <p>1）空车新规定过海费用=计费吨×（32.00＋5.50）＋3.00（或2.00）</br>注：32.00为运费费率：5.50为港口包干费费率；3.00为大车价格调节基金；2.00为小车价格调节基金。</p>
+           <p>2）车辆计费方法：总费用=计价重量×（运价费率＋港口包干费）＋价格调节基金。</p>
+           <p>3）运价率：瓜果菜28.50元/吨；普通货物32.00元/吨。</p>
+           <p>4）港口包干费包括：（1）港口作业包干费：瓜果菜为4.50元/吨；普通货物为5.00元/吨。（2）货物港物费：0.5元/吨</p>
+           <p>5）价格调节基金：旅客0.50元/人；货车2吨以下（含2吨）、客车12座以下（含12座）每次每辆2元；货车2.5吨以上（含2.5吨）、客车13座以上（含13座）每次每辆3元。</p>
+          
+        </div>
+
+        <h4 class="h-1">三、计价方法</h4>
+        <p>1、旅客运输票价=基本运价+港口收费。</p>
+        <p>2、基本运价是运输企业将一名旅客从起点运到终点的基本价格。</p>
+        <p>3、港口服务费分解为旅客港务费和港口服务费。</p>
+
+        <h4 class="h-1">四、琼州海峡客滚运输及港口作业收费</h4>
+        <div>
+          <table class="zusf" border="0" cellspacing="0" cellpadding="0">
+            <tr class="table-th">
+              <td class="1" colspan="2">收费项目</td>
+              <td class="2">船舶运费</td>
+              <td class="3">收费依据</td>
+              <td class="4">收费范围</td>
+              <td class="5">服务内容</td>
+            </tr>
+            <tr class="1">
+              <td class="1" rowspan="3">货物</td>
+              <td class="2">船舶运费</td>
+              <td class="3">普通货物按32元/计费吨</td>
+              <td class="4">关于全面放开水运价格有关问题的通知（计价格[2001]315号）</td>
+              <td class="5">出岛的车载货物</td>
+              <td class="6">客滚运输</td>
+            </tr>
+            <tr class="2">
+              <td class="1">海口作业包干费</td>
+              <td class="2">普通货物按5元/计费吨；鲜活农产品按4.5元/计费吨</td>
+              <td class="3">关于印发《港口收费计费办法》的通知（交水发[2017]104号）</td>
+              <td class="4">出岛的车载货物</td>
+              <td class="5">港口客滚作业</td>
+            </tr>
+            <tr class="3">
+              <td class="1">货物港务费</td>
+              <td class="2">每吨0.50元</td>
+              <td class="3">关于印发《港口收费计费办法》的通知（交水发[2017]104号）</td>
+              <td class="4">出岛的车载货物</td>
+              <td class="5"></td>
+            </tr>
+            <tr class="4">
+              <td class="1">旅客</td>
+              <td class="1">船舶票价</td>
+              <td class="2">41.5元/人</td>
+              <td class="3">关于全面放开水运价格有关问题的通知（计价格[2001]315号）、关于印发《港口收费计费办法》的通知（交水发[2017]104号）</td>
+              <td class="4">出岛旅客</td>
+              <td class="5">运输及港口作业</td>
+            </tr>
+          </table>
+        </div>
+      </section>
+    </div>
+  </body>
+    
+</html>
